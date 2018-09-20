@@ -1,6 +1,7 @@
 
 #include<iostream>
 #include "Game.h"
+#include <SDL_image.h> 
 
 
 bool Game::init(const char*title, int xpos, int ypos, int width, int height, bool fullscreen)
@@ -12,7 +13,10 @@ bool Game::init(const char*title, int xpos, int ypos, int width, int height, boo
 		{
 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
 		}
-		SDL_Surface* pTempSurface = SDL_LoadBMP("./Assets/animate.bmp");
+		SDL_Surface* pTempSurface = IMG_Load("Assets/animate-alpha.png");
+	
+		SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
+
 		m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
 		SDL_FreeSurface(pTempSurface);
 		m_sourceRectangle.w = 128;
@@ -45,7 +49,9 @@ void Game::render()
 void Game::update()
 {
 	m_sourceRectangle.x = 128 * int(((SDL_GetTicks() / 100) % 6));
-	m_destinationRectangle.x = m_sourceRectangle.x += 0.5f;
+	SDL_Delay(500);
+
+
 }
 void Game::clean()
 {
