@@ -14,6 +14,7 @@ bool Game::init(const char*title, int xpos, int ypos, int width, int height, boo
 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
 		}
 		SDL_Surface* pTempSurface = IMG_Load("Assets/animate.png");
+
 		//SDL_Surface* pTempSurface = IMG_Load("assets/animate-alpha.png");
 
 	
