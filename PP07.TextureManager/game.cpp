@@ -55,7 +55,7 @@ void Game::render()
 }
 void Game::update()
 {
-	m_currentFrame =  int(((SDL_GetTicks() / 100) % 6));
+	m_currentFrame =  int(((SDL_GetTicks()*3 / 100) % 6));
 	m_currentFrame2= int(((SDL_GetTicks() / 100) % 6));
 
 
