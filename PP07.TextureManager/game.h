@@ -19,12 +19,13 @@ private:
 	SDL_Window * m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
-	//SDL_Texture* m_pTexture;
+	SDL_Texture* m_pTexture;
 	//SDL_Rect m_sourceRectangle;
 	//SDL_Rect m_destinationRectangle;
 
 	int m_currentFrame;
 	int m_currentFrame2;
+	int mee;
 	TextureManager m_textureManager;
 };
 #pragma once
