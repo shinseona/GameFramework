@@ -17,6 +17,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PP06.ImageSprite", "PP06.Im
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PP07.TextureManager", "PP07.TextureManager\PP07.TextureManager.vcxproj", "{396E21CF-8643-4A32-8C14-6CF118874BCE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PP09.Inheritance", "PP09.Inheritance\PP09.Inheritance.vcxproj", "{065DCA25-EBD1-421E-9AD3-551FB370B547}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PP08.SingletonTM", "PP08.SingletonTM\PP08.SingletonTM.vcxproj", "{1F1D2F79-D0D1-49AA-B558-C15002103E72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +85,22 @@ Global
 		{396E21CF-8643-4A32-8C14-6CF118874BCE}.Release|x64.Build.0 = Release|x64
 		{396E21CF-8643-4A32-8C14-6CF118874BCE}.Release|x86.ActiveCfg = Release|Win32
 		{396E21CF-8643-4A32-8C14-6CF118874BCE}.Release|x86.Build.0 = Release|Win32
+		{065DCA25-EBD1-421E-9AD3-551FB370B547}.Debug|x64.ActiveCfg = Debug|x64
+		{065DCA25-EBD1-421E-9AD3-551FB370B547}.Debug|x64.Build.0 = Debug|x64
+		{065DCA25-EBD1-421E-9AD3-551FB370B547}.Debug|x86.ActiveCfg = Debug|Win32
+		{065DCA25-EBD1-421E-9AD3-551FB370B547}.Debug|x86.Build.0 = Debug|Win32
+		{065DCA25-EBD1-421E-9AD3-551FB370B547}.Release|x64.ActiveCfg = Release|x64
+		{065DCA25-EBD1-421E-9AD3-551FB370B547}.Release|x64.Build.0 = Release|x64
+		{065DCA25-EBD1-421E-9AD3-551FB370B547}.Release|x86.ActiveCfg = Release|Win32
+		{065DCA25-EBD1-421E-9AD3-551FB370B547}.Release|x86.Build.0 = Release|Win32
+		{1F1D2F79-D0D1-49AA-B558-C15002103E72}.Debug|x64.ActiveCfg = Debug|x64
+		{1F1D2F79-D0D1-49AA-B558-C15002103E72}.Debug|x64.Build.0 = Debug|x64
+		{1F1D2F79-D0D1-49AA-B558-C15002103E72}.Debug|x86.ActiveCfg = Debug|Win32
+		{1F1D2F79-D0D1-49AA-B558-C15002103E72}.Debug|x86.Build.0 = Debug|Win32
+		{1F1D2F79-D0D1-49AA-B558-C15002103E72}.Release|x64.ActiveCfg = Release|x64
+		{1F1D2F79-D0D1-49AA-B558-C15002103E72}.Release|x64.Build.0 = Release|x64
+		{1F1D2F79-D0D1-49AA-B558-C15002103E72}.Release|x86.ActiveCfg = Release|Win32
+		{1F1D2F79-D0D1-49AA-B558-C15002103E72}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
