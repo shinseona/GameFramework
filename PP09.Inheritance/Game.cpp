@@ -63,7 +63,7 @@ void Game::update()
 	m_player.update();
 }
 
-y
+
 void Game::clean()
 {
 	std::cout << "cleaning game\n";

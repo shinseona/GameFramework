@@ -1,5 +1,7 @@
-#include <SDL.h>
-#include<iostream>
+#pragma once
+#include "SDL.h"
+#include <iostream>
+
 class GameObject
 {
 public:

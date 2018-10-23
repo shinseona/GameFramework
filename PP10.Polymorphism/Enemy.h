@@ -1,8 +1,12 @@
-#include <SDL.h>
-#include<iostream>
-void Enemy::update()
+#pragma once
+#include "GameObject.h"
+
+class Enemy : public GameObject
 {
-	m_y += 1;
-	m_x += 1;
-	m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
-}
+public:
+	void load(int x, int y, int width, int height,
+		std::string textureID);
+	void draw(SDL_Renderer* pRenderer);
+	void update();
+	void clean();
+};

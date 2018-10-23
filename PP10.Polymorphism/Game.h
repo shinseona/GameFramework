@@ -1,47 +1,37 @@
-
-#include "GameObject.h"
-#include "Player.h"
+#pragma once
+#include "SDL.h"
 #include "TextureManager.h"
-#include <SDL.h>
-class Enemy : public GameObject
+#include "Player.h"
+#include "GameObject.h"
+#include <iostream>
+#include "Enemy.h"
+#include <vector>
+
+class Game
 {
 public:
-	//void load(int x, int y, int width, int height,
-	//	std::string textureID);
-	//void draw(SDL_Renderer* pRenderer) {};
+	Game() {}
+	~Game() {}
+	bool init(const char* title, int xpos, int ypos,
+		int width, int height, bool fullscreen);
+	void render();
 	void update();
-	//void clean() {};
-};
-
-
-
-class Player : public GameObject
-{
-public:
-	void load(int x, int y, int width, int height,
-		std::string textureID);
-	void draw(SDL_Renderer* pRenderer);
-	void update();
+	void handleEvents();
 	void clean();
+	bool running() { return m_bRunning; }
+
+
+private:
+	SDL_Window* m_pWindow;
+	SDL_Renderer* m_pRenderer;
+	bool m_bRunning;
+	int m_currentFrame;
+
+	std::vector<GameObject*> m_gameObjects;
+
+	GameObject* m_go;
+	GameObject* m_player;
+	GameObject* m_enemy;
+
+
 };
-
-void Player::load(int x, int y, int width, int height,
-	std::string textureID)
-{
-	GameObject::load(x, y, width, height, textureID);
-}
-
-void Player::draw(SDL_Renderer* pRenderer)
-{
-	GameObject::draw(pRenderer);
-}
-
-void Player::clean()
-{
-	GameObject::clean();
-}
-
-void Player::update()
-{
-	m_x -= 1;
-}
