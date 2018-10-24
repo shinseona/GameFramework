@@ -1,5 +1,4 @@
 #include "Game.h"
-#include <SDL_Image.h>
 
 TextureManager* TextureManager::s_pInstance = 0;
 

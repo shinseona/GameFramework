@@ -1,20 +1,21 @@
 #include "Game.h"
 
+Game* g_gmae = 0;
 
-Game*g_game = 0;
+
 int main(int argc, char* argv[])
 {
-	g_game = new Game();
-	g_game->init("Chapter 9", 100, 100, 640, 480, false);
+	g_gmae = new Game();
+	g_gmae->init("Chapter9", 100, 100, 640, 480, false);
 
-	while (g_game->running())
+	while (g_gmae->running())
 	{
-		g_game->handleEvents();
-		g_game->update();
-		g_game->render();
-		SDL_Delay(10); // add the delayy
+		g_gmae->handleEvents();
+		g_gmae->update();
+		g_gmae->render();
+		SDL_Delay(10);
 	}
 
-	g_game->clean();
+	g_gmae->clean();
 	return 0;
 }

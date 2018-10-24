@@ -1,17 +1,16 @@
 #pragma once
 #include "SDL.h"
+#include <SDL_image.h>
 #include "TextureManager.h"
 #include "Player.h"
 #include "GameObject.h"
 #include <iostream>
-#include "Enemy.h"
-#include <vector>
 
 class Game
 {
 public:
-	Game() {}
-	~Game() {}
+	Game() { ; }
+	~Game() { ; }
 	bool init(const char* title, int xpos, int ypos,
 		int width, int height, bool fullscreen);
 	void render();
@@ -22,16 +21,10 @@ public:
 
 
 private:
-	SDL_Window* m_pWindow;
+	SDL_Window * m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
 	int m_currentFrame;
-
-	std::vector<GameObject*> m_gameObjects;
-
-	GameObject* m_go;
-	GameObject* m_player;
-	GameObject* m_enemy;
-
-
+	GameObject m_go;
+	Player m_player;
 };
