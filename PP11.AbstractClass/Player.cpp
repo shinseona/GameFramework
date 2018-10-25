@@ -1,6 +1,11 @@
 #include "Player.h"
+#include <SDL.h>
 
 
+void Player::draw()
+{
+	SDLGameObject::draw(); // we now use SDLGameObject
+}
 
 void Player::update()
 {
