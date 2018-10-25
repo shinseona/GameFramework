@@ -4,7 +4,6 @@
 #include "GameObject.h"
 #include "Player.h"
 
-
 class Game
 {
 public:

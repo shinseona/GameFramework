@@ -27,7 +27,7 @@ private:
 	std::map<std::string, SDL_Texture*> m_textureMap;
 private:
 	TextureManager() {}
-
+	static TextureManager* s_pInstance;
 	// 함수 추가
 	static TextureManager* Instance()
 	{

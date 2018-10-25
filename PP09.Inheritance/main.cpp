@@ -1,5 +1,4 @@
 #include "Game.h"
-
 Game* g_gmae = 0;
 
 
