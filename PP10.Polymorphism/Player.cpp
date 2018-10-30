@@ -1,9 +1,24 @@
 #include "Player.h"
 
 
+void Player::load(int x, int y, int width, int height, std::string textureID) {
+	GameObject::load(x, y, width, height, textureID);
+}
 
-void Player::update()
-{
-	m_x -= 1;
-	m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
+void Player::draw(SDL_Renderer* pRenderer) {
+	GameObject::draw(pRenderer);
+}
+
+void Player::clean() {
+	GameObject::clean();
+}
+
+void Player::update() {
+	m_currentFrame = int(((SDL_GetTicks() / 50) % 4));
+	m_x += x_speed;
+	m_y += y_speed;
+}
+
+void Player::setMovingspeed(int x, int y) {
+	GameObject::setMovingspeed(x, y);
 }
