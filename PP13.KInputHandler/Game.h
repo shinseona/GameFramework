@@ -20,7 +20,8 @@ public:
 	bool running() { return m_bRunning; }
 	void quit() 
 	{
-		SDL_Quit();
+		m_bRunning = false;
+		
 	}
 
 	static Game* Instance()
