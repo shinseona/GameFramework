@@ -4,6 +4,7 @@
 #include "TextureManager.h"
 #include "InputHandler.h"
 #include <iostream>
+#include "bullet.h"
 
 Game* Game::s_pInstance = 0;
 
@@ -24,8 +25,17 @@ bool Game::init(const char* title, int xpos, int ypos,
 		{
 			return false;
 		}
+		if (!TheTextureManager::Instance()->load("assets/bullet.png", "bullet", m_pRenderer))
+		{
+			return false;
+		}
 		m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
+		
 		m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82, "animate")));
+		if()
+		m_gameObjects.push_back(new bullet(new LoaderParams(100, 100, 110, 70, "bullet")));
+
+		
 	}
 	else {
 		return false;
