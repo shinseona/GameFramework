@@ -32,9 +32,10 @@ bool Game::init(const char* title, int xpos, int ypos,
 		m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
 		
 		m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82, "animate")));
-		if()
-		m_gameObjects.push_back(new bullet(new LoaderParams(100, 100, 110, 70, "bullet")));
-
+		if (TheInputHandler::Instance()->isKeyDown)
+		{
+			m_gameObjects.push_back(new bullet(new LoaderParams(100, 100, 110, 70, "bullet")));
+		}
 		
 	}
 	else {
