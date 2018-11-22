@@ -30,13 +30,6 @@ int main(int argc, char*argv[])
 				SDL_Delay((int)(DELAY_TIME - frameTime));
 			}
 		}
-		/*while (TheGame::Instance()->running())
-		{
-			TheGame::Instance()->handleEvents();
-			TheGame::Instance()->update();
-			TheGame::Instance()->render();
-			SDL_Delay(10);
-		}*/
 	}
 	else {
 		std::cout << "game init failure - " << SDL_GetError() << "\n";

@@ -1,6 +1,7 @@
 #include "PlayState.h"
 #include <iostream>
 const std::string PlayState::s_playID = "PLAY";
+PlayState* PlayState::s_pInstance = 0;
 void PlayState::update()
 {
 	// nothing for now
