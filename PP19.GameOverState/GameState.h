@@ -2,6 +2,7 @@
 #include<string>
 #include <vector>
 #include "GameObject.h"
+#include "Vector2D.h"
 class GameState
 
 {
@@ -13,6 +14,8 @@ public:
 	virtual bool onEnter() = 0;
 	virtual bool onExit() = 0;
 	virtual std::string getStateID() const = 0;
+	
+
 };
 
 

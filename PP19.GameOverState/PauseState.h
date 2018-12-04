@@ -12,6 +12,8 @@ public:
 	virtual std::string getStateID() const { return s_pauseID; }
 	static void s_pauseToMain();
 	static void s_resumePlay();
+
+
 	static PauseState* Instance()
 	{
 		if (s_pInstance == 0)
