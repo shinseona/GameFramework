@@ -6,6 +6,7 @@
 #include "MenuButton.h"
 #include "AnimatedGraphic.h"
 #include <iostream>
+
 const std::string GameOverState::s_gameOverID = "GAMEOVER";
 
 
@@ -36,6 +37,7 @@ bool GameOverState::onEnter()
 	{
 		return false;
 	}
+
 	GameObject* gameOverText = new AnimatedGraphic(
 		new  LoaderParams(200, 100, 190, 30, "gameovertext"), 2);
 

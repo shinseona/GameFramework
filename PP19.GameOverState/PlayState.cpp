@@ -42,7 +42,7 @@ void PlayState::update()
 {
 	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_ESCAPE))
 	{
-		TheGame::Instance()->getStateMachine()->changeState(
+		TheGame::Instance()->getStateMachine()->pushState(
 			new PauseState());
 	}
 	for (int i = 0; i < m_gameObjects.size(); i++) {
@@ -52,10 +52,11 @@ void PlayState::update()
 		dynamic_cast<SDLGameObject*>(m_gameObjects[0]),
 		dynamic_cast<SDLGameObject*>(m_gameObjects[1])))
 	{
-		TheGame::Instance()->getStateMachine()->changeState(
+		TheGame::Instance()->getStateMachine()->pushState(
 			new GameOverState());
 	}
 }
+
 
 void PlayState::render()
 {

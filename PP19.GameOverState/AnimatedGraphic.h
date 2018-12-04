@@ -8,4 +8,5 @@ private:
 public:
 	AnimatedGraphic(const LoaderParams* pParams, int animSpeed);
 	virtual void update();
+	 int m_numFrames = 5;
 };

@@ -2,7 +2,6 @@
 #include "GameState.h"
 class GameObject;
 
-
 class GameOverState : public GameState
 {
 public:
