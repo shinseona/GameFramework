@@ -2,7 +2,6 @@
 #include "GameState.h"
 #include "SDLGameObject.h"
 
-
 class PlayState : public GameState
 {
 public:
@@ -10,9 +9,8 @@ public:
 	virtual void render();
 	virtual bool onEnter();
 	virtual bool onExit();
-	virtual bool checkCollision(SDLGameObject* p1, SDLGameObject* p2);
 	virtual std::string getStateID() const { return s_playID; }
-
+	bool checkCollision(SDLGameObject* p1, SDLGameObject* p2);
 	static PlayState* Instance()
 	{
 		if (s_pInstance == 0)
@@ -25,6 +23,6 @@ public:
 private:
 	static const std::string s_playID;
 	static PlayState* s_pInstance;
-	std::vector<GameObject*> m_gameObjects;
+	PlayState() {}
+	~PlayState() {}
 };
-typedef PlayState ThePlayState;

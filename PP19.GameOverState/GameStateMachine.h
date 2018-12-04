@@ -1,5 +1,6 @@
 #pragma once
 #include "GameState.h"
+
 class GameStateMachine
 {
 public:
@@ -7,10 +8,8 @@ public:
 	void popState();
 	void render();
 	void update();
-	void pushState(GameState *pState);
-   
+
 private:
 	GameState * m_currentState;
 	GameState* m_prevState;
-	 GameState* m_gameStates;
 };

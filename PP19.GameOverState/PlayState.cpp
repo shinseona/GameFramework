@@ -1,16 +1,73 @@
 ﻿#include "PlayState.h"
-#include "Game.h"
-#include "PauseState.h"
-#include "SDLGameObject.h"
-#include "GameOverState.h"
-#include "InputHandler.h"
+#include "TextureManager.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Game.h"
+#include"InputHandler.h"
+#include"PauseState.h"
+#include"GameOverState.h"
 #include <iostream>
-#include "TextureManager.h"
-
 
 const std::string PlayState::s_playID = "PLAY";
+
+void PlayState::update()
+{
+
+	if (checkCollision(
+		dynamic_cast<SDLGameObject*>(m_gameObjects[0]),
+		dynamic_cast<SDLGameObject*>(m_gameObjects[1])))
+	{
+		TheGame::Instance()->getStateMachine()->changeState(
+			new GameOverState());
+	}
+
+	if (TheInputHandler::Instance()->isKeyDown(
+		SDL_SCANCODE_ESCAPE))
+	{
+		TheGame::Instance()->getStateMachine()->changeState(
+			new PauseState());
+	}
+
+	GameState::update();
+
+
+
+}
+void PlayState::render()
+{
+	GameState::render();
+}
+bool PlayState::onEnter()
+{
+	if (!TheTextureManager::Instance()->load("assets/helicopter.png",
+		"helicopter", TheGame::Instance()->getRenderer())) {
+		return false;
+	}
+	if (!TheTextureManager::Instance()->load("assets/helicopter2.png",
+		"helicopter2", TheGame::Instance()->getRenderer())) {
+		return false;
+	}
+	GameObject* player = new Player(
+		new LoaderParams(500, 100, 128, 55, "helicopter"));
+	GameObject* enemy = new Enemy(
+		new LoaderParams(100, 100, 128, 55, "helicopter2"), 5);
+	m_gameObjects.push_back(player);
+	m_gameObjects.push_back(enemy);
+	std::cout << "entering PlayState\n";
+	return true;
+
+}
+
+bool PlayState::onExit()
+{
+	if (!GameState::onExit())
+		return false;
+	TheTextureManager::Instance()->clearFromTextureMap("helicopter");
+	TheTextureManager::Instance()->clearFromTextureMap("helicopter2");
+	std::cout << "exiting PlayState\n";
+	return true;
+
+}
 
 bool PlayState::checkCollision(SDLGameObject* p1, SDLGameObject* p2)
 {
@@ -37,82 +94,3 @@ bool PlayState::checkCollision(SDLGameObject* p1, SDLGameObject* p2)
 	if (leftA >= rightB) { return false; }
 	return true;
 }
-
-void PlayState::update()
-{
-	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_ESCAPE))
-	{
-		TheGame::Instance()->getStateMachine()->pushState(
-			new PauseState());
-	}
-	for (int i = 0; i < m_gameObjects.size(); i++) {
-		m_gameObjects[i]->update();
-	}
-	if (checkCollision(
-		dynamic_cast<SDLGameObject*>(m_gameObjects[0]),
-		dynamic_cast<SDLGameObject*>(m_gameObjects[1])))
-	{
-		TheGame::Instance()->getStateMachine()->pushState(
-			new GameOverState());
-	}
-}
-
-
-void PlayState::render()
-{
-	for (int i = 0; i < m_gameObjects.size(); i++)
-	{
-		m_gameObjects[i]->draw();
-	}
-}
-
-bool PlayState::onEnter()
-{
-	if (!TheTextureManager::Instance()->load("assets/helicopter.png",
-		"helicopter", TheGame::Instance()->getRenderer())) {
-		return false;
-	}
-	if (!TheTextureManager::Instance()->load("assets/helicopter2.png",
-		"helicopter2", TheGame::Instance()->getRenderer())) {
-		return false;
-	}
-	GameObject* player = new Player(
-		new LoaderParams(500, 100, 128, 55, "helicopter"));
-	GameObject* enemy = new Enemy(
-		new LoaderParams(100, 100, 128, 55, "helicopter2"));
-	m_gameObjects.push_back(player);
-	m_gameObjects.push_back(enemy);
-	std::cout << "entering PlayState\n";
-	return true;
-}
-
-bool PlayState::onExit()
-{
-	for (int i = 0; i < m_gameObjects.size(); i++)
-	{
-		m_gameObjects[i]->clean();
-	}
-	m_gameObjects.clear();
-
-	TheTextureManager::Instance()->clearFromTextureMap("helicopter");
-	std::cout << "exiting PlayState\n";
-	return true;
-}
-
-void SDLGameObject::draw()
-{
-	if (m_velocity.getX() > 0)
-	{
-		TextureManager::Instance()->drawFrame(m_textureID,
-			(Uint32)m_position.getX(), (Uint32)m_position.getY(),
-			m_width, m_height, m_currentRow, m_currentFrame,
-			TheGame::Instance()->getRenderer(),
-			SDL_FLIP_HORIZONTAL);
-	}
-	else {
-		TextureManager::Instance()->drawFrame(m_textureID,
-			(Uint32)m_position.getX(), (Uint32)m_position.getY(),
-			m_width, m_height, m_currentRow, m_currentFrame,
-			TheGame::Instance()->getRenderer());
-	}
-}	

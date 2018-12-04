@@ -1,30 +1,35 @@
 #pragma once
-
-#include <map>
-#include <vector>
-#include <SDL.h>
-#include <SDL_image.h>
+#include "Player.h"
+#include "GameObject.h"
 #include "GameStateMachine.h"
-class TextureManagerr;
-class GameObject;
-using namespace std;
-
+#include <SDL.h>
+#include <vector>
 class Game
 {
-public:	
+private:
+
+
+	static Game* s_pInstance;
+
+	SDL_Window * m_pWindow;
+	SDL_Renderer* m_pRenderer;
+	bool m_bRunning;
+	int m_currentFrame;
+
+	GameObject* m_player;
+	GameObject* m_enemy;
+
+	std::vector<GameObject*> m_gameObjects;
+
 	GameStateMachine* m_pGameStateMachine;
-	bool init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
-	void render();
-	void update();
-	void handleEvents();
-	void clean();
-	bool running() { return m_bRunning; }
+
+	Game() {}
+	~Game() {}
+
+public:
+
+	SDL_Renderer * getRenderer() const { return m_pRenderer; }
 	GameStateMachine* getStateMachine() { return m_pGameStateMachine; }
-	void quit() 
-	{
-		m_bRunning = false;
-		
-	}
 
 	static Game* Instance()
 	{
@@ -37,34 +42,15 @@ public:
 	}
 
 
-	SDL_Renderer* getRenderer()const { return m_pRenderer; }
-private:
-
-	Game() {}
-
-	static Game* s_pInstance;
-
-	typedef Game TheGame;
-
-
-
-
-	SDL_Window * m_pWindow;
-	SDL_Renderer*m_pRenderer;
-
-	int m_currentFrame;
-	int m_currentFrame2;
-	bool m_bRunning;
-	
-
-	std::vector<GameObject*> m_gameObjects;
-
-	GameObject* m_go;
-	GameObject* m_player;
-	GameObject* m_enemy;
-	GameObject* a;
-	GameObject* b;
-
+	bool init(const char* title, int xpos, int ypos,
+		int width, int height, bool fullscreen);
+	void render();
+	void update();
+	void handleEvents();
+	void clean();
+	bool running() { return m_bRunning; }
+	void quit();
 };
+
 
 typedef Game TheGame;

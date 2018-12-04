@@ -1,8 +1,5 @@
 #pragma once
-
-#include <SDL.h>
-#include "LoaderParams.h"
-#include <vector>
+#include"LoaderParams.h"
 
 class GameObject
 {
