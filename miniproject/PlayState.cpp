@@ -18,10 +18,10 @@ void PlayState::update()
 	for (int i = 0; i < m_back.size(); i++) {
 		m_back[i]->update();
 	}
-	/*if (SDL_GetTicks() > nextTime1) {		
+	if (SDL_GetTicks() > nextTime1) {		
 		nextTime1 = SDL_GetTicks() + TimeLeft;
 		m_gameObjects.push_back(new Enemy(new LoaderParams(-200, 0, 50, 80, "helicopter2"),1));
-	}*/
+	}
 
 	for (int i = 0; i < m_gameObjects.size(); i++) {
 		m_gameObjects[i]->update();
