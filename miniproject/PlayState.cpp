@@ -18,31 +18,41 @@ void PlayState::update()
 	for (int i = 0; i < m_back.size(); i++) {
 		m_back[i]->update();
 	}
-	if (SDL_GetTicks() > nextTime1) {		
+	if (SDL_GetTicks() > nextTime1) {
 		nextTime1 = SDL_GetTicks() + TimeLeft;
-		m_gameObjects.push_back(new Enemy(new LoaderParams(-200, 0, 50, 80, "helicopter2"),1));
+		m_gameObjects.push_back(new Enemy(new LoaderParams(-200, 0, 50, 80, "helicopter2"), 1));
 	}
 
 	for (int i = 0; i < m_gameObjects.size(); i++) {
 		m_gameObjects[i]->update();
-		
-		
-		if (i>2&&checkCollision(dynamic_cast<SDLGameObject*>(m_gameObjects[1]), dynamic_cast<SDLGameObject*>(m_gameObjects[i]))) {
-			
-		
-				TheGame::Instance()->getStateMachine()->changeState(
-					new GameOverState());
-		}
 
+
+	
+	if (i > 2 && checkCollision(dynamic_cast<SDLGameObject*>(m_gameObjects[1]), dynamic_cast<SDLGameObject*>(m_gameObjects[i])))
+		{
+			if (!colli) {		
+				save = SDL_GetTicks() + saveTime;
+				Heart--;
+				if (Heart == 0) {
+					TheGame::Instance()->getStateMachine()->changeState(GameOverState::Instance());
+				}
+		
+				colli = true;
+			}
+
+			if (colli) {
+				if (save < SDL_GetTicks()) {
+					colli = false;
+				}
+			}
+		}
 	}
+	
+
 	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_ESCAPE)) {		//pause상태
 		TheGame::Instance()->getStateMachine()->changeState(PauseState::Instance());
 	}
 	
-	
-	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_ESCAPE)) {		//pause상태
-		TheGame::Instance()->getStateMachine()->changeState(PauseState::Instance());
-	}
 
 }
 void PlayState::render()

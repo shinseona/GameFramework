@@ -33,7 +33,9 @@ private:
 	std::vector<GameObject*> m_enemys;
 	int TimeLeft = 500;	;
 	int nextTime1 = 0;	
-
+	int Heart = 3;		//¸ñ¼û¼ö
+	int save = 0;
+	int saveTime = 1800;
 
 
 
