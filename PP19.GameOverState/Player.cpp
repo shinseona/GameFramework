@@ -16,6 +16,7 @@ void Player::update()
 	m_velocity.setY(0);
 	handleInput(); // add our function
 	m_currentFrame = int(((SDL_GetTicks() / 100) % 4));
+	
 	SDLGameObject::update();
 }
 
@@ -27,22 +28,14 @@ void Player::handleInput()
 {
 	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
 	{
-		m_velocity.setX(2);
+		m_velocity.setX(rspeed);
 		//m_textureID
 	}
 	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT))
 	{
-		m_velocity.setX(-2);
+		m_velocity.setX(lspeed);
 	}
-	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP))
-	{
-		m_velocity.setY(-2);
-	}
-	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN))
-	{
-		m_velocity.setY(2);
-	}
-
+	
 	/*Vector2D* target = TheInputHandler::Instance()->getMousePosition();
 	m_velocity = *target - m_position;
 	m_velocity /= 50;

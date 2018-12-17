@@ -1,7 +1,7 @@
 #include "TextureManager.h"
 
 TextureManager* TextureManager::s_plnstance = NULL;
-
+SDL_Renderer *renderer;
 bool TextureManager::load(std::string fileName, std::string   id,
 	SDL_Renderer* pRenderer)
 {
@@ -61,3 +61,5 @@ void TextureManager::clearFromTextureMap(std::string id)
 {
 	m_textureMap.erase(id);
 }
+
+

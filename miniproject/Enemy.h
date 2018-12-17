@@ -10,5 +10,7 @@ public:
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
+	int setEnemyPosition;
+	int die;
 	void handleInput();
 };

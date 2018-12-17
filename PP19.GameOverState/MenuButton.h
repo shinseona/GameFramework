@@ -14,9 +14,9 @@ class MenuButton : public SDLGameObject
 {
 public:
 	MenuButton(const LoaderParams* pParams);
-	virtual void draw();
-	virtual void update();
-	virtual void clean();
+	void draw();
+	void update();
+	void clean();
 	void(*m_callback)();
 
 	bool m_bReleased;

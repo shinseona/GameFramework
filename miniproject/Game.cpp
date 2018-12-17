@@ -37,7 +37,7 @@ bool Game::init(const char* title, int xpos, int ypos,
 	m_pGameStateMachine->changeState(MenuState::Instance());
 
 
-	SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
+	SDL_SetRenderDrawColor(m_pRenderer, 100, 100, 100, 255);
 
 	return true;
 }

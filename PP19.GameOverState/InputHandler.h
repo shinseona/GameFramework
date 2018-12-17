@@ -1,7 +1,8 @@
 #include "SDL.h"
 #include "Vector2D.h"
 #include <vector>
-	
+#define rspeed 3
+#define lspeed -3
 enum mouse_buttons
 {
 	LEFT = 0,

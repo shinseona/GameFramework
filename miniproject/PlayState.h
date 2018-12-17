@@ -22,11 +22,17 @@ public:
 		}
 		return s_pInstance;
 	}	
+	bool colli = false;
 	
 private:
 	//PlayState() = default;
 	static const std::string s_playID;
 	static PlayState*  s_pInstance;
+	std::vector<GameObject*> m_back;
+	std::vector<GameObject*> m_player;
+	std::vector<GameObject*> m_enemys;
+	int TimeLeft = 500;	;
+	int nextTime1 = 0;	
 
 
 

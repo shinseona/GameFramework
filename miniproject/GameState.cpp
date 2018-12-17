@@ -1,5 +1,6 @@
 #include "GameState.h"
 
+
 void GameState::update()
 {
 	for (int i = 0; i < m_gameObjects.size(); i++)
@@ -14,6 +15,9 @@ void GameState::render()
 	for (int i = 0; i < m_gameObjects.size(); i++)
 	{
 		m_gameObjects[i]->draw();
+	}
+	for (int i = 0; i < m_back.size(); i++) {
+		m_back[i]->draw();
 	}
 
 }

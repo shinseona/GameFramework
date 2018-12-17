@@ -4,6 +4,7 @@
 
 Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
+	
 }
 void Player::draw()
 {
@@ -12,6 +13,7 @@ void Player::draw()
 
 void Player::update()
 {
+	
 	m_velocity.setX(0);
 	m_velocity.setY(0);
 	handleInput(); // add our function
@@ -25,23 +27,19 @@ void Player::clean()
 
 void Player::handleInput()
 {
-	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
+	if (m_position.getX() <= 800-m_width)
 	{
-		m_velocity.setX(2);
-		//m_textureID
+		if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
+		{
+			m_velocity.setX(2);
+		}
 	}
+	if (m_position.getX() >= 0)
 	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT))
 	{
 		m_velocity.setX(-2);
 	}
-	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP))
-	{
-		m_velocity.setY(-2);
-	}
-	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN))
-	{
-		m_velocity.setY(2);
-	}
+	
 
 	/*Vector2D* target = TheInputHandler::Instance()->getMousePosition();
 	m_velocity = *target - m_position;

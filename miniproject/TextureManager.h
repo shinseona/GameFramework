@@ -32,8 +32,12 @@ public:
 		}
 		return s_plnstance;
 	}
-private:
 	std::map<std::string, SDL_Texture*> m_textureMap;
+
+
+
+private:
+
 
 };
 
