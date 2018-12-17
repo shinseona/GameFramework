@@ -27,7 +27,7 @@ void PlayState::update()
 		m_gameObjects[i]->update();
 		
 		
-		if (i>3&&checkCollision(dynamic_cast<SDLGameObject*>(m_gameObjects[2]), dynamic_cast<SDLGameObject*>(m_gameObjects[i]))) {
+		if (i>2&&checkCollision(dynamic_cast<SDLGameObject*>(m_gameObjects[1]), dynamic_cast<SDLGameObject*>(m_gameObjects[i]))) {
 			
 		
 				TheGame::Instance()->getStateMachine()->changeState(
