@@ -4,6 +4,9 @@
 #include "GameStateMachine.h"
 #include <SDL.h>
 #include <vector>
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
+
 class Game
 {
 private:

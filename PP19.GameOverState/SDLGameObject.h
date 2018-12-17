@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "Vector2D.h"
+const float s = 0.0f;
 
 class SDLGameObject : public GameObject
 {
@@ -13,8 +14,7 @@ public:
 	int getWidth();
 	int getHeight();
 protected:
-	//int m_x;
-	//int m_y;
+
 	int m_width;
 	int m_height;
 	int m_currentRow;

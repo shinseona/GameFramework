@@ -1,7 +1,6 @@
 #include "Player.h"
 #include "InputHandler.h"
 #include <SDL.h>
-
 Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
 }
@@ -34,6 +33,14 @@ void Player::handleInput()
 	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT))
 	{
 		m_velocity.setX(lspeed);
+	}
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN))
+	{
+		m_velocity.setY(rspeed);
+	}
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP))
+	{
+		m_velocity.setY(lspeed);
 	}
 	
 	/*Vector2D* target = TheInputHandler::Instance()->getMousePosition();

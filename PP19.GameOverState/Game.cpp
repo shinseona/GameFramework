@@ -69,12 +69,12 @@ void Game::clean()
 
 void Game::handleEvents()
 {
-	//TheInputHandler::Instance()->update();
-	/*if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RETURN))
+	TheInputHandler::Instance()->update();
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RETURN))
 	{
 		m_pGameStateMachine->changeState(PlayState::Instance());
 	}
-*/
+
 }
 
 void Game::quit()

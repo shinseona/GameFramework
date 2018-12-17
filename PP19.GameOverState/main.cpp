@@ -14,7 +14,7 @@ Uint32 frameStart, frameTime;
 int main(int argc, char*argv[])
 {
 	std::cout << "game init attempt...\n";
-	if (TheGame::Instance()->init("Chapter 19", 100, 100, 1024, 800, false))
+	if (TheGame::Instance()->init("Chapter 19", 100, 100, SCREEN_WIDTH, SCREEN_HEIGHT, false))
 	{
 		std::cout << "game init success!\n";
 		while (TheGame::Instance()->running())

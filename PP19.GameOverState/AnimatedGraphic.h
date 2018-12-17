@@ -2,6 +2,7 @@
 #include "SDLGameObject.h"
 #include "LoaderParams.h"
 #include <SDL.h>
+const int h = 1000;
 
 class AnimatedGraphic :public SDLGameObject
 {
